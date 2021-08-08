@@ -1,0 +1,60 @@
+EMPLOYEE DATABASE MANAGEMENT SYSTEM
+
+MYSQL DATABASE
+
+CREATE DATABASE employee_management_system;
+
+CREATE TABLE employees (
+	employee_id INT (11) AUTO_INCREMENT PRIMARY KEY,
+	first_name VARCHAR (20) DEFAULT NULL,
+	last_name VARCHAR (25) NOT NULL,
+	employee_age INT (11) NOT NULL,
+	super_id INT (11) NOT NULL,
+        department_id INT (11) NOT NULL
+);
+
+
+CREATE TABLE departments (
+	department_id INT (11) PRIMARY KEY,
+	department_name VARCHAR (30) NOT NULL,
+	super_id INT (11) DEFAULT NULL,
+	FOREIGN KEY (super_id) REFERENCES employees (super_id) ON DELETE CASCADE 
+);
+
+
+ALTER TABLE employees
+ADD FOREIGN KEY (department_id) REFERENCES departments (department_id) ON DELETE SET NOT NULL;
+
+
+
+
+
+/*Data for the table employees */
+
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (101,'Kavi','priya','23',5,005);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (102,'James','watson','35',4,004);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (103,'Prithiv','raj','45',4,004);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (104,'Raj','mohan','35',3,003);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (105,'Elan','musk','40',2,002);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (106,'Tony','stark','24',1,001);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (107,'Sindhu','shaw','34',3,003);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (108,'Vivek','jadoo','30',3,003);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (109,'Deepthi','chaharwal','27',4,004);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (110,'Dana','divya','37',5,005);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (111,'Srushti','desh','26',2,002);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (112,'Akshat','jain','35',1,001);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (113,'Lallu','prasad','40',2,002);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (114,'Karthi','keyani','21',5,005);
+INSERT INTO employees(employee_id,first_name,last_name,employee_age,super_id,department_id) VALUES (115,'Priya','dharshini','27',1,001);
+
+
+/*Data for the table departments */
+
+INSERT INTO departments(department_id,department_name,super_id) VALUES (001,'Administration',1);
+INSERT INTO departments(department_id,department_name,super_id) VALUES (002,'Marketing',2);
+INSERT INTO departments(department_id,department_name,super_id) VALUES (003,'Purchasing',3);
+INSERT INTO departments(department_id,department_name,super_id) VALUES (004,'Human Resources',4);
+INSERT INTO departments(department_id,department_name,super_id) VALUES (005,'Shipping',5);
+
+
+
